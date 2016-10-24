@@ -42,20 +42,20 @@ void Lidar::parseData() {
         return;
     }
 
-    // Retrieving which angle we are actually covering (0 -> (0 -> 3), 1 -> (4 -> 7), etc...)
+    // Retrieve which angle we are actually covering (0 -> (0 -> 3), 1 -> (4 -> 7), etc...)
     // 0xA0 corresponds to 0 and 0xF9 to 89
     index = (this->packet[1] - LIDAR_INDEX_MIN) * 4;
 
-    // Retrieving the speed of the lidar (in little-endian)
+    // Retrieve the speed of the lidar (in little-endian)
     speed = ((this->packet[3] << 8) | this->packet[2]) / 64;
     
     // Retrieving error and warning flags (but I don't know what they mean yet)
-    invalidFlag[0] = (this->packet[5] & 0x80) >> 7;
-    invalidFlag[1] = (this->packet[9] & 0x80) >> 7;
+    invalidFlag[0] = (this->packet[5]  & 0x80) >> 7;
+    invalidFlag[1] = (this->packet[9]  & 0x80) >> 7;
     invalidFlag[2] = (this->packet[13] & 0x80) >> 7;
     invalidFlag[3] = (this->packet[17] & 0x80) >> 7;
-    warningFlag[0] = (this->packet[5] & 0x40) >> 6;
-    warningFlag[1] = (this->packet[9] & 0x40) >> 6;
+    warningFlag[0] = (this->packet[5]  & 0x40) >> 6;
+    warningFlag[1] = (this->packet[9]  & 0x40) >> 6;
     warningFlag[2] = (this->packet[13] & 0x40) >> 6;
     warningFlag[3] = (this->packet[17] & 0x40) >> 6;
 
@@ -69,9 +69,12 @@ void Lidar::parseData() {
 }
 
 void Lidar::readSerial() {
+    // Wait for the start byte
     if (this->serial.readable()) {
         this->packet[0] = this->serial.getc();
     }
+    // The start byte is acquired
+    // Read the 21 other bytes
     if (this->packet[0] == LIDAR_START_BYTE) {
         uint8_t i = 1;
         while (i < LIDAR_PACKET_LENGTH) {
@@ -80,9 +83,11 @@ void Lidar::readSerial() {
                 i++;
             }
         }
+        // Check if the index is inside the valid range
         if (this->packet[1] >= LIDAR_INDEX_MIN && this->packet[1] <= LIDAR_INDEX_MAX) {
+            // Data seems ok, parse it
             this->parseData();
-            // now the data is ok
+            // Now the data is updated
         }
 
     }
