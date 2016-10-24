@@ -4,6 +4,10 @@ Lidar::Lidar(PinName tx, PinName rx) : speed(0), buffer(0), serial(tx, rx) {
     serial.baud(115200);
 }
 
+uint16_t Lidar::getData(uint16_t angle) {
+    return this->distance[angle];
+}
+
 uint16_t Lidar::getSpeed() {
     return this->speed;
 }
