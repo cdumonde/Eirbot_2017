@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>474</x>
+      <y>282</y>
+      <w>144</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Encoder
+--
+Encoder()
+GetPosition()
+GetSpeed()
+--
+Position
+Speed</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>474</x>
+      <y>534</y>
+      <w>144</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Lidar
+--
+Lidar()
+GetDistance()
+GetSpeed()
+FillFrame()
+IsValidFrame()
+--
+FrameBuffer
+Distance[ ]
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>474</x>
+      <y>156</y>
+      <w>144</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Servo
+--
+Servo()
+setPosition()
+--
+Position</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>474</x>
+      <y>30</y>
+      <w>144</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Motor
+--
+Motor()
+setSpeed()
+getSpeed()
+getDirection()
+--
+speed
+direction
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>30</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Pin
+--
+Pin()
+SetAlternate()
+SetMode()
+SetSpeed()
+SetPullResistor()
+--
+*GPIO_Type
+PinMask
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>474</x>
+      <y>408</y>
+      <w>144</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>GP2
+--
+GP2()
+GetDistance()
+--
+Distance</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>222</x>
+      <y>30</y>
+      <w>150</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>PWM
+--
+PWM()
+SetDutyCycle()
+SetFrequency()
+--
+Pin
+DutyCycle
+Frequency</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>222</x>
+      <y>120</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>DigitalIO
+--
+DigitalIO()
+Set()
+Get()
+--
+Pin
+Value</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>222</x>
+      <y>372</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Serial
+--
+Serial()
+Close()
+SetBaudrate()
+Read()
+Write()
+Available()
+--
+Pin
+rxBuff
+txBuff</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>222</x>
+      <y>246</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>AnalogIO
+--
+AnalogIO()
+Read()
+Write()
+--
+Pin
+Value</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>366</x>
+      <y>90</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>366</x>
+      <y>108</y>
+      <w>120</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>180.0;10.0;100.0;10.0;100.0;120.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>96</y>
+      <w>54</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>70.0;200.0;10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>366</x>
+      <y>174</y>
+      <w>120</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>180.0;280.0;100.0;280.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>366</x>
+      <y>312</y>
+      <w>120</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>180.0;260.0;70.0;260.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>366</x>
+      <y>420</y>
+      <w>120</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+</panel_attributes>
+    <additional_attributes>180.0;300.0;40.0;300.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>72</y>
+      <w>90</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>72</y>
+      <w>90</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>130.0;210.0;60.0;210.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>72</y>
+      <w>90</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>130.0;420.0;60.0;420.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>72</y>
+      <w>90</w>
+      <h>366</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>130.0;590.0;60.0;590.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
