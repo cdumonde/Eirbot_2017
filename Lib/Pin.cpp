@@ -1,6 +1,6 @@
 #include "Pin.hpp"
 
-Pin::Pin(CN connector, uint8_t pin_index, MODE mode, PULL_RESISTOR resistor = NO_PULL, AF function = AF0, SPEED speed = VERY_HIGH_SPEED, OUTPUT_TYPE type = PUSH_PULL)
+Pin::Pin(CN connector, uint8_t pin_index, MODE mode, PULL_RESISTOR resistor, AF function, SPEED speed, OUTPUT_TYPE type)
 {
 	error = 0;
 	convert_to_Gpio(connector, pin_index);
@@ -32,11 +32,12 @@ Pin::Pin(LED debug)
 		gpio_index = 0;
 		break;
 	}
+	enableGPIO();
 	setAlternate(AF0);
 	setMode(OUTPUT);
 	setSpeed(VERY_HIGH_SPEED);
 	setType(PUSH_PULL);
-	setPullResistor(NO_PULL);	
+	setPullResistor(NO_PULL);
 }
 void Pin::enableGPIO()
 {
@@ -93,7 +94,7 @@ void Pin::setAlternate(AF function)
 		gpio_address->AFR[0] &= ~(0b1111 << gpio_index * 4);
 		gpio_address->AFR[0] |= ((uint8_t)function) << gpio_index * 4;
 	}
-	
+
 }
 void Pin::setMode(MODE mode)
 {
@@ -243,3 +244,4 @@ void Pin::convert_to_Gpio(CN connector, uint8_t pin_index)
 		break;
 	}
 }
+
